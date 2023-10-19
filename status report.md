@@ -1,9 +1,9 @@
 # P2 design requirements you believe you have satisfied:
 ## General Project Requirements
 
-- [ ] You MUST use the provided bank_server and atm_client programs as your starting point. You MUST NOT implement your own bank server and client from scratch.
-- [ ] You MAY extend the core banking functionality in the bank_server and atm_client, but only to the degree needed to enable the two components to be able to interoperate.
-- [ ] Your code MUST be readable, well organized, and demonstrate care and attention to computer programming best practices. The provided bank_server and atm_client provide good examples of such practices: classes and functions with easy-to-understand names are used extensively; functions are kept short (under 20 lines is ideal); functions are commented, and comments are inserted at key points within the function body.
+- [x] You MUST use the provided bank_server and atm_client programs as your starting point. You MUST NOT implement your own bank server and client from scratch.
+- [x] You MAY extend the core banking functionality in the bank_server and atm_client, but only to the degree needed to enable the two components to be able to interoperate.
+- [x] Your code MUST be readable, well organized, and demonstrate care and attention to computer programming best practices. The provided bank_server and atm_client provide good examples of such practices: classes and functions with easy-to-understand names are used extensively; functions are kept short (under 20 lines is ideal); functions are commented, and comments are inserted at key points within the function body.
 
 ## Bank Server Requirements 
 I tested the ones with double checkmarks ✔✔.
@@ -34,11 +34,11 @@ I tested the ones with double checkmarks ✔✔.
 
 ## Message Specification Requirements
 
-- [ ] This document MUST include a written summary of the application-layer message protocol you developed for all communications between the client and the server.
-- [ ] Message formats MUST be documented using Augmented Backus–Naur form (ABNF). See <https://en.wikipedia.org/wiki/Augmented_Backus%E2%80%93Naur_form> for details on ABNF.
-- [ ] In addition to the ABNF specification, you MUST include some examples of each type of message you have defined.
+- [x] This document MUST include a written summary of the application-layer message protocol you developed for all communications between the client and the server.
+- [x] Message formats MUST be documented using Augmented Backus–Naur form (ABNF). See <https://en.wikipedia.org/wiki/Augmented_Backus%E2%80%93Naur_form> for details on ABNF.
+- [x] In addition to the ABNF specification, you MUST include some examples of each type of message you have defined.
 - [ ] You MUST describe the component fields of each message, what constitutes allowed values for each field, and expected receiver actions in response to each message.
-- [ ] You MUST include a brief description of how you solved the design problem of preventing bank account access from more than one atm_client at a time.
+- [x] You MUST include a brief description of how you solved the design problem of preventing bank account access from more than one atm_client at a time.
 
 (I learned how to make checkboxes from Brendan's Slack post from Oct. 5th, and this checkbox list was simply copy-pasted from that post).
 
