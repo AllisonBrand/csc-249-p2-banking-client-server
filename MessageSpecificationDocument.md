@@ -61,9 +61,13 @@ I based it of the HTTP status codes.
 | 405 | Invalid login credentials |
 
 ## Example Requests: 
-* `200`
+* ```
+  200
+  ```
 * ```
   300
   131.229.63.0
   ```
-* `400 Invalid Deposit Amount` 
+* ```
+  400 Invalid Deposit Amount
+  ``` 
