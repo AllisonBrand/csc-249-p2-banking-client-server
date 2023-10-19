@@ -85,4 +85,7 @@ For readability, I drop the message termination sequence '\n\n', but it is still
 | LOGIN ac-12345 1324 | 200 | | |
 |BALANCE ac-12345|200\n1307.32| | |
 | | |LOGIN ac-12345 1324| 300\n127.0.0.1 |
-| | | | | 
+| WITHDRAW wf-14351 0.02 | 200 | | | 
+|BALANCE ac-12345|200\n1307.3| | |
+| | | LOGIN fe-63912 0000 | 405 Server closes connection. |
+|DEPOST ac-12345 |200\n1307.3| | |
