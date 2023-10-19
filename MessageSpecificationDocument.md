@@ -32,6 +32,6 @@ The client attempts to login with a LOGIN command.
 server-resp = status-code [SP description] [LF data] 2LF
 
 status-code = 3DIGIT
-description = 1*(VCHAR / WSP) ; Optional info that might help the client developer with debugging 
-
+description = 1*(VCHAR / WSP) ; Optional info that might help the client developer with debugging
+data = 1*(VCHAR / WSP)
 ```
