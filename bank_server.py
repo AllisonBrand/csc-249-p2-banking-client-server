@@ -368,9 +368,9 @@ def withdraw(acct_num, amount, session_data):
         return '401' # Unauthorized
     status_code = ALL_ACCOUNTS[acct_num].withdraw(as_numeric(amount))
     if status_code == 0:
-        return '200' # Successful Deposit
+        return '200' # Successful Withdrawl
     elif status_code == 1: # Was not a postive value with no more than two decimal places
-        return '400 Invalid Deposit Amount'
+        return '400 Invalid Withdrawl Amount'
     elif status_code == 2:
         return '403' # Attempted Overdraft
 
