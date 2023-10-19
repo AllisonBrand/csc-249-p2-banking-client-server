@@ -34,10 +34,10 @@ Deposit or Withdrawl amounts are specified in dollars. For the server to allow t
 
 
 ## Example Requests: 
-* `LOGIN ac-12345 1324`
-* `BALANCE ac-12345`
-* `DEPOSIT ac-12345 301.0`
-* `WITHDRAW ac-12345 10.0`
+* `LOGIN ac-12345 1324\n\n`
+* `BALANCE ac-12345\n\n`
+* `DEPOSIT ac-12345 301.0\n\n`
+* `WITHDRAW ac-12345 10.0\n\n`
 
 # Messages from the Server
 ```
@@ -66,18 +66,18 @@ I based it of the HTTP status codes.
 
 ## Example Responses: 
 * ```
-  200
+  200\n\n
   ```
 * ```
-  300 The data carried in this request is the IP address of the client currently accessing account.
-  131.229.63.0
+  300 The data carried in this request is the IP address of the client currently accessing account.\n
+  131.229.63.0\n\n
   ```
 * ```
-  400 Blah, blah, blah! Does anyone read these debbugging messages?
+  400 Blah, blah, blah! Does anyone read these debbugging messages?\n\n
   ```
 
   # Example Communications:
 
-  | **Client Requests**    | **Server Responses** |
-| -------- | ------- |
-| 200 | Success |
+| **Client 1 Requests**  | **Server Responses** | **Client 2 Requests**  | 
+| -------- | ------- | ------- |
+| LOGIN ac-12345 1324 | | |
