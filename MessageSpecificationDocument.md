@@ -69,7 +69,7 @@ I based it of the HTTP status codes.
   200
   ```
 * ```
-  300
+  300 The data carried in this request is the IP address of the client currently accessing account
   131.229.63.0
   ```
 * ```
