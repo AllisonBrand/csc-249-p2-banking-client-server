@@ -37,7 +37,7 @@ I tested the ones with double checkmarks ✔✔.
 - [x] This document MUST include a written summary of the application-layer message protocol you developed for all communications between the client and the server.
 - [x] Message formats MUST be documented using Augmented Backus–Naur form (ABNF). See <https://en.wikipedia.org/wiki/Augmented_Backus%E2%80%93Naur_form> for details on ABNF.
 - [x] In addition to the ABNF specification, you MUST include some examples of each type of message you have defined.
-- [x] You MUST describe the component fields of each message, what constitutes allowed values for each field, and expected receiver actions in response to each message.
+- [ ] You MUST describe the component fields of each message, what constitutes allowed values for each field, and expected receiver actions in response to each message. - I detailed some, but not all receiver responses for every kind of client request. I did describe the component fields of each message, and what constitutes allowed values for each field.
 - [x] You MUST include a brief description of how you solved the design problem of preventing bank account access from more than one atm_client at a time.
 
 (I learned how to make checkboxes from Brendan's Slack post from Oct. 5th, and this checkbox list was simply copy-pasted from that post).
