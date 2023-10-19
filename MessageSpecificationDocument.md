@@ -74,4 +74,10 @@ I based it of the HTTP status codes.
   ```
 * ```
   400 Blah, blah, blah! Does anyone read these debbugging messages?
-  ``` 
+  ```
+
+  # Example Communications:
+
+  | **Client Requests**    | **Server Responses** |
+| -------- | ------- |
+| 200 | Success |
