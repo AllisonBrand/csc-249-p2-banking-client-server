@@ -19,6 +19,19 @@ balance-cmd = %s"BALANCE" SP acct-num
 ; Deposit Command:
 deposit-cmd = %s"DEPOSIT" SP acct-num SP amount
 amount = 1*DIGIT / (*DIGIT "." *2DIGIT) ; A positive number with at most two digits - a negative number or zero will still be understood by the server, but not processed
+
+; Withdraw Command:
+withdraw-cmd = %s"WITHDRAW" SP acct-num SP amount
 ```
 The client attempts to login with a LOGIN command.
 
+# Messages from the Server
+```
+; Augmented Backus–Naur form specification for responses sent by the server:
+
+server-resp = status-code [SP description] [LF data] 2LF
+
+status-code = 3DIGIT
+description = 1*(VCHAR / WSP) ; Optional info that might help the client developer with debugging 
+
+```
