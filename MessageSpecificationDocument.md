@@ -69,9 +69,9 @@ I based it of the HTTP status codes.
   200
   ```
 * ```
-  300 The data carried in this request is the IP address of the client currently accessing account
+  300 The data carried in this request is the IP address of the client currently accessing account.
   131.229.63.0
   ```
 * ```
-  400 Invalid Deposit Amount
+  400 Blah, blah, blah! Does anyone read these debbugging messages?
   ``` 
