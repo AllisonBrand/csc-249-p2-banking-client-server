@@ -29,7 +29,11 @@ amount = 1*DIGIT / (*DIGIT "." *2DIGIT) ; A positive number with at most two dig
 ; Withdraw Command:
 withdraw-cmd = %s"WITHDRAW" SP acct-num SP amount
 ```
-The client attempts to login with a LOGIN command.
+Example Requests: 
+* `LOGIN ac-12345 1324`
+* `BALANCE ac-12345`
+* `DEPOSIT ac-12345 301.0`
+* `WITHDRAW ac-12345 10.0`
 
 # Messages from the Server
 ```
