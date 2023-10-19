@@ -29,7 +29,7 @@ amount = 1*DIGIT / (*DIGIT "." *2DIGIT) ; A positive number with at most two dig
 ; Withdraw Command:
 withdraw-cmd = %s"WITHDRAW" SP acct-num SP amount
 ```
-Example Requests: 
+## Example Requests: 
 * `LOGIN ac-12345 1324`
 * `BALANCE ac-12345`
 * `DEPOSIT ac-12345 301.0`
@@ -59,3 +59,11 @@ I based it of the HTTP status codes.
 | 401 | Client is not authorized to do this. |
 | 403 | Attempted overdraft |
 | 405 | Invalid login credentials |
+
+## Example Requests: 
+* `200`
+* ```
+  300
+  131.229.63.0
+  ```
+* `400 Invalid Deposit Amount` 
