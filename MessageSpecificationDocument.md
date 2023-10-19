@@ -60,7 +60,7 @@ I based it of the HTTP status codes.
 | 403 | Attempted overdraft |
 | 405 | Invalid login credentials |
 
-## Example Requests: 
+## Example Responses: 
 * ```
   200
   ```
