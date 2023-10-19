@@ -2,6 +2,8 @@
 The client can attempt to login, view account balance, and make deposits or withdrawls. It's messages must conform to one of these 4 commands: LOGIN, BALANCE, DEPOST, and WITHDRAW.
 Responses from the server consist of a status code indicating success or the failure mode, data as relevant, and may also include some text for debugging purposes. Messages terminate with an empty line, indicated with two consecutive linefeeds ("\n\n") 
 
+Only one 
+
 # Messages from the Client
 ```
 ; Augmented Backus–Naur form specification for messages sent by the client:
@@ -35,3 +37,14 @@ status-code = 3DIGIT
 description = 1*(VCHAR / WSP) ; Optional info that might help the client developer with debugging
 data = 1*(VCHAR / WSP)
 ```
+The status codes are defined below. In the table "x" stands for any digit.
+Anything that starts with 2 is a success. 
+Anything that starts with 3 is a failure that did not result from the client or server doing something wrong.
+Anything that starts with 4 is a client error.
+I based it of the HTTP status codes.
+
+| **Status Code**    | Interpretation |
+| -------- | ------- |
+| 2xx  | Success  |
+| 300 | Credentials are correct, but account is busy   |
+| March    | $420    |
