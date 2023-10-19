@@ -29,7 +29,8 @@ amount = 1*DIGIT / (*DIGIT "." *2DIGIT) ; A positive number with at most two dig
 ; Withdraw Command:
 withdraw-cmd = %s"WITHDRAW" SP acct-num SP amount
 ```
-Deposit or Withdrawl amounts are specified in dollars. They must be postive, nonzero, and have no more than two decimal places for the server to allow the transaction (two decimal places is the greatest precision supported by US currency). It would have been less complicated and less error prone (floating point rounding error) if I had represented account balances as integer numbers of cents (¢). This would have required rewritting a large enough amount of code that I decided not to do it. The withdrawl amount cannot exceed the account balance.
+
+Deposit or Withdrawl amounts are specified in dollars. For the server to allow the transaction, the amount must be postive, nonzero, and have no more than two decimal places  (two decimal places is the greatest precision supported by US currency). The withdrawl amount cannot exceed the account balance. It would have been less complicated and less error prone (floating point rounding error) if I had represented account balances as integer numbers of cents (¢). This would have required rewritting a large enough amount of code that I decided not to do it. 
 
 
 ## Example Requests: 
