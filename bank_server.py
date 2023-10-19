@@ -81,7 +81,7 @@ class BankAccount:
             result_code = 1
         else:
             # valid amount, so add it to balance and set succes_code 1
-            self.acct_balance += amount
+            self.acct_balance = round(self.acct_balance + amount, 2)
         return result_code
 
     def withdraw(self, amount):
@@ -97,7 +97,7 @@ class BankAccount:
             result_code = 2
         else:
             # all checks out, subtract amount from the balance
-            self.acct_balance -= amount
+            self.acct_balance = round(self.acct_balance - amount, 2)
         return result_code
 
 def get_acct(acct_num):
@@ -192,9 +192,10 @@ def run_network_server(): # CHANGE docstring
                     # key represents a client connection, mask indicates whether it's ready for read or write, inclusive.
                     service_connection(key, mask, sel)
     except KeyboardInterrupt:
-        print("Caught keyboard interrupt, saving and exiting")
-        save_all_accounts(ACCT_FILE) 
+        print("Caught keyboard interrupt. ", end="")
     finally:
+        print("Saving and exiting.")
+        save_all_accounts(ACCT_FILE) 
         lsock.close()
         sel.close()
     return

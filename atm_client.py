@@ -77,7 +77,7 @@ def process_deposit(sock, acct_num):
     amt = input(f"How much would you like to deposit? (You have ${bal} available in account {acct_num}). > ").strip()
     # Input checking:
     # Reprompts the user if amt isn't numeric and positive. Rounds to the nearest cent.
-    amt = ensure_valid(amt, min=0, err_msg="Deposit amount must be a postive dollar value.") 
+    amt = ensure_valid(amt) 
     if not amt: # Failed to ensure valid
         print("Deposit transaction canceled.")
         return
@@ -90,7 +90,7 @@ def process_deposit(sock, acct_num):
     send_to_server(sock, f"DEPOSIT {acct_num} {amt}\n\n")
     token, _ = get_from_server(sock)
     if token.startswith('2'):
-        print(f"Deposit of ${amt} completed. New balance: ${bal + amt}")
+        print(f"Deposit of ${amt} completed. New balance: ${round(float(bal) + float(amt), 2)}")
     else:
         print("Unrecognized response from server. Please try again later.")
     return
@@ -114,7 +114,7 @@ def process_withdrawal(sock, acct_num):
     amt = input(f"How much would you like to withdraw? (You have ${bal} available in account {acct_num}). > ")
     # Input checking:
     # Reprompts the user if amt isn't numeric or is an attempted overdraft. Rounds to the nearest cent.
-    amt = ensure_valid(amt, min=float(bal), err_msg="Attempted Overdraft. Your account balance cannont be debt.") 
+    amt = ensure_valid(amt, max=float(bal), err_msg="Attempted Overdraft. Your account balance cannot be debt.") 
     if not amt: # Failed to ensure valid withdrawl amount.
         print("Withdraw transaction canceled.")
         return
@@ -126,7 +126,7 @@ def process_withdrawal(sock, acct_num):
     send_to_server(sock, f"WITHDRAW {acct_num} {amt}\n\n")
     token, _ = get_from_server(sock)
     if token.startswith('2'):
-        print(f"Withdrawal of ${amt} completed. Remaining balance: ${bal - amt}")
+        print(f"Withdrawal of ${amt} completed. Remaining balance: ${round(float(bal) - float(amt), 2)}")
     else:
         print("Unrecognized response from server. Please try again later.")
     return
@@ -203,10 +203,10 @@ def as_numeric(amount):
     except ValueError:
         return None
     
-def ensure_valid(amt:str, min=None, err_msg='') -> str:
-    '''Checks that amount is numeric, has no more than two decimal places, and is and greater than min, if min is specified. 
+def ensure_valid(amt:str, max=None, err_msg='') -> str:
+    '''Checks that amount is numeric, is positive, has no more than two decimal places, and is less than or equal to max, if max is specified. 
     If not, prompts the user to renter. err_msg is the complaint displayed to the user if the 
-    input amount is less than or equal to min.
+    input amount is greater than max.
     Repeats until it can return string amount, 
     or returns False if the user chooses to break the loop. '''
     while True:
@@ -217,15 +217,18 @@ def ensure_valid(amt:str, min=None, err_msg='') -> str:
         if numeric_amt is None: # Input wasn't numeric
             amt = input(f"Could not coerce {amt} to dollar value. Please enter again. ('x' to go back). > ").strip()
             continue
+        if numeric_amt <= 0:
+            amt = input("Amount must be a postive dollar value. Please enter again. ('x' to go back). > ").strip()
+            continue
         if numeric_amt != round(numeric_amt, 2): # Input had more than two decimal places
-            print(f"Cannot represent {numeric_amt} in US currency. Rounding to the nearest cent: ${round(numeric_amt, 2)}.")
-            amt = input("Hit enter to proceed, or re-enter the deposit ammount. >").strip()
+            print(f"Cannot represent {numeric_amt} in US currency. Rounding to the nearest cent.")
+            amt = input(f"Hit enter to proceed with ${round(numeric_amt, 2)}, or re-enter the ammount. > ").strip()
             if not amt: # The user just hit enter, indicating acceptance of the rounded deposit amount:
                 numeric_amt = round(numeric_amt, 2)
             else:       # The user re-entered an amount
                 continue
-        if min is not None: # Ok, we should check that amount is greater than min:
-            if numeric_amt <= min: # Input was numeric, but too low a value.
+        if max is not None: # Ok, we should check if amount is greater than max:
+            if numeric_amt > max: # Input amount was too high
                 if err_msg: print(err_msg, end=' ') 
                 amt = input(f"Please enter again. ('x' to go back). > ").strip()
                 continue
