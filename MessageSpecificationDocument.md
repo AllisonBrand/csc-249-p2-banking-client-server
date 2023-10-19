@@ -37,14 +37,17 @@ status-code = 3DIGIT
 description = 1*(VCHAR / WSP) ; Optional info that might help the client developer with debugging
 data = 1*(VCHAR / WSP)
 ```
-The status codes are defined below. In the table "x" stands for any digit.
-Anything that starts with 2 is a success. 
-Anything that starts with 3 is a failure that did not result from the client or server doing something wrong.
-Anything that starts with 4 is a client error.
+The status codes are defined below. "x" stands for any digit.
+2xx is a success. 
+3xx is a failure that did not result from the client or server doing something wrong.
+4xx is a client error.
 I based it of the HTTP status codes.
 
 | **Status Code**    | Interpretation |
 | -------- | ------- |
-| 2xx  | Success  |
-| 300 | Credentials are correct, but account is busy   |
-| March    | $420    |
+| 200 | Success |
+| 300 | Client credentials are correct, but account is busy.  |
+| 400 | Malformed Request |
+| 401 | Client is not authorized to do this. |
+| 403 | Attempted Overdraft |
+| 405 | Invalid login credentials |
