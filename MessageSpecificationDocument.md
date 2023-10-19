@@ -1,5 +1,5 @@
 # Summary
-The client can attempt to login, view account balance, and make deposits or withdrawls. It's messages must conform to one of these 4 commands: LOGIN, BALANCE, DEPOST, and WITHDRAW.
+The client can attempt to login, view account balance, and make deposits or withdrawls. It's messages must conform to one of these 4 commands.
 Responses from the server consist of a status code indicating success or the failure mode, data as relevant, and may also include some text for debugging purposes. Messages from both client and server terminate with an empty line, indicated with two consecutive linefeeds ("\n\n").
 
 All client requests must include the account number, so an attacker can't simply send withdrawl requests to every server port until it finds one that is serving a logged-on client. This way, the attacker must guess the account number and the port of an authenticated connection. That ups the number of possible guesses from ~16,000 (the number of dynamic ports) to ~68,000,000 (the number of unique account numbers). I still wouldn't trust it, computers are fast. If the account number matches the one authorized for the socket, the server allows it to go through.
