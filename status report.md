@@ -21,15 +21,16 @@ I tested the ones with double checkmarks ✔✔.
 - [x] The bank_server MUST NOT assume that any customer has access to the server's console.
 
 ## ATM Server Requirements
+I tested the ones with double checkmarks ✔✔.
 
-- [ ] MUST run in its own computing process (i.e., in a dedicated terminal window).
-- [ ] MUST obtain all needed user inputs through keyboard interaction.
-- [ ] MUST connect to only one bank_server at a time.
-- [ ] MUST communicate with the bank_server exclusively by sending and receiving messages over the network using an application-layer message protocol of your own design.
-- [ ] MUST require each banking session to being with a customer "log in" step, where the customer provides an account number and PIN which are then validated by the bank_server.
-- [ ] MUST NOT allow a customer to perform any banking transactions unless their account number and PIN are first validated by the bank_server.
-- [ ] MUST allow a customer to perform any sequence of deposits, withdrawals, and balance checks after they have validated their account number and PIN.
-- [ ] MUST NOT allow a customer to overdraw their bank account.
+- [x] MUST run in its own computing process (i.e., in a dedicated terminal window).  ✔✔
+- [x] MUST obtain all needed user inputs through keyboard interaction.   ✔✔
+- [x] MUST connect to only one bank_server at a time.
+- [x] MUST communicate with the bank_server exclusively by sending and receiving messages over the network using an application-layer message protocol of your own design.  ✔✔
+- [x] MUST require each banking session to being with a customer "log in" step, where the customer provides an account number and PIN which are then validated by the bank_server.  ✔✔
+- [x] MUST NOT allow a customer to perform any banking transactions unless their account number and PIN are first validated by the bank_server.  ✔✔
+- [x] MUST allow a customer to perform any sequence of deposits, withdrawals, and balance checks after they have validated their account number and PIN.  ✔✔
+- [x] MUST NOT allow a customer to overdraw their bank account.  ✔✔
 
 ## Message Specification Requirements
 
