@@ -42,4 +42,9 @@ I tested the ones with double checkmarks ✔✔.
 
 (I learned how to make checkboxes from Brendan's Slack post from Oct. 5th, and this checkbox list was simply copy-pasted from that post).
 
-(b) the top 3 most significant knowledge or understanding gaps that are standing in your way, and (c) any thoughts you have about what you might do to overcome those gaps. I imagine that this status report would be approximately one page in length, maybe a bit more though probably not a bit less. The idea is to help me understand what you've accomplished, and what's holding you back. And also what your thoughts are for how you could be part of the solution!
+# Top 3 most significant knowledge or understanding gaps that are standing in your way, and any thoughts you have about what you might do to overcome those gaps. 
+The challenge was simply the amount of time it took. I'm spending much more than the expected 12 hours per week for this 4 credit class. Being given so much code and having to read over and understand all of was very time-consuming. I appreciated the specific deliverable guidelines, but with the amount of code I had to read through, figure out connections between, and modify, it would've been quicker to simply write my own.  Being given the BankAccount class was helpful. I didn't have to modify it, so I didn't have to spend time figuring out its implementation details. I think that this project should've been spread out in 2 projects, or the deadline should've been further off. 
+
+I do have a question: in the ABNF specification, do you specify only the messages that will be successfully executed by the server, or the messages that the server can interpret?
+
+I imagine that this status report would be approximately one page in length, maybe a bit more though probably not a bit less. The idea is to help me understand what you've accomplished, and what's holding you back. And also what your thoughts are for how you could be part of the solution!
