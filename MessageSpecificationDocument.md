@@ -2,7 +2,7 @@
 The client can attempt to login, view account balance, and make deposits or withdrawls. It's messages must conform to one of these 4 commands.
 Responses from the server consist of a status code indicating success or the failure mode, data as relevant, and may also include some text for debugging purposes. Messages from both client and server terminate with an empty line, indicated with two consecutive linefeeds ("\n\n").
 
-All client requests must include the account number, so an attacker can't simply send withdrawl requests to every server port until it finds one that is serving a logged-on client. This way, the attacker must guess the account number and the port of an authenticated connection. That ups the number of possible guesses from ~16,000 (the number of dynamic ports) to ~68,000,000 (the number of unique account numbers). I still wouldn't trust it, computers are fast. If the account number matches the one authorized for the socket, the server allows it to go through.
+All client requests must include the account number, so an attacker can't simply send withdrawl requests to every server port until it finds one that is serving a logged-on client. This way, the attacker must guess the account number and the port of an authenticated connection. That ups the number of possible guesses from ~16,000 (the number of dynamic ports) to ~68,000,000 (the number of unique account numbers). If the account number matches the one authorized for the socket, the server allows it to go through. I still wouldn't trust it, computers are fast. 
 
 **Only one client may access an account at a time.** When a client successfully logs in, the account number is added to an internal dictionary and associated with the IP address of the client. If a client provides valid credentials but their account is in the dictionary, the client receives a failure message with the IP address of the user who is accessing their account.  
 
@@ -29,6 +29,9 @@ amount = 1*DIGIT / (*DIGIT "." *2DIGIT) ; A positive number with at most two dig
 ; Withdraw Command:
 withdraw-cmd = %s"WITHDRAW" SP acct-num SP amount
 ```
+Deposit or Withdrawl amounts are specified in dollars. They must be postive, nonzero, and have no more than two decimal places for the server to allow the transaction (two decimal places is the greatest precision supported by US currency). It would have been less complicated and less error prone (floating point rounding error) if I had represented account balances as integer numbers of cents (¢). This would have required rewritting a large enough amount of code that I decided not to do it. The withdrawl amount cannot exceed the account balance.
+
+
 ## Example Requests: 
 * `LOGIN ac-12345 1324`
 * `BALANCE ac-12345`
