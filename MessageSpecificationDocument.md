@@ -78,6 +78,11 @@ I based it of the HTTP status codes.
 
   # Example Communications:
 
-| **Client 1 Requests**  | **Server Responses** | **Client 2 Requests**  | 
-| -------- | ------- | ------- |
-| LOGIN ac-12345 1324 | | |
+For readability, I drop the message termination sequence '\n\n', but it is still required.
+
+| **Client 1 Requests**  | **Server Response to Client 1** | **Client 2 Requests**  |  **Server Response to Client 2** |
+| :--------: | :-------: | :-------: | :-------: |
+| LOGIN ac-12345 1324 | 200 | | |
+|BALANCE ac-12345|200\n1307.32| | |
+| | |LOGIN ac-12345 1324| 300\n127.0.0.1 |
+| | | | | 
